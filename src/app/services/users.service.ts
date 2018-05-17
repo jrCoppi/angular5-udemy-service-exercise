@@ -4,11 +4,10 @@ import { EventEmitter, Injectable } from '@angular/core';
 //importa o serviço de login
 import { CounterService } from './counter.service';
 
+//indica que esta classe injeta outra
 @Injectable()
-export class UsersService {
-    activeUsers = ['Max', 'Anna'];
-    inactiveUsers = ['Chris', 'Manu'];
 
+export class UsersService {
     users = [
     {
          name: 'Max',
@@ -28,9 +27,7 @@ export class UsersService {
     }
     ];
 
-    //evento para quando for emitido um evento
-    //userUpdated = new EventEmitter<string>();
-
+    //injeta o serviço de contador
     constructor(private counterService: CounterService) {}
 
     changeUserStatus(id: number, status: boolean) {

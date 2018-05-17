@@ -1,6 +1,8 @@
 <h3>Active Users</h3>
 <ul class="list-group">
+   <!-- percorre a lista de usuarios -->
     <ng-container *ngFor="let user of users; let i = index">
+      <!-- mostra apenas os ativos -->
         <li
           class="list-group-item"
           *ngIf="user.status">

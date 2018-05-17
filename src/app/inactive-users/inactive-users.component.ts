@@ -1,18 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { UsersService } from '../users.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-inactive-users',
   templateUrl: './inactive-users.component.html',
-  styleUrls: ['./inactive-users.component.css']
+  //styleUrls: ['./inactive-users.component.css']
 })
-export class InactiveUsersComponent {
-  @Input() users: string[];
+export class InactiveUsersComponent implements OnInit {
+  users: {name: string, status: boolean}[];
 
   constructor(private usersService: UsersService) {
   }
 
+  ngOnInit() {
+     this.users = this.usersService.users;
+  }
 
   changeUserStatus(id: number, status: boolean) {
     this.usersService.changeUserStatus(id, status);
